@@ -8,11 +8,11 @@ export default {
         veryDarkBlueBG: 'hsl(207, 26%, 17%)',
         veryDarkBlueText: 'hsl(200, 15%, 8%)',
         DarkGray: 'hsl(0, 0%, 52%)',
-        veryLightGray: 'hsl(0, 0%, 98%)',
+        veryLigthGray: 'hsl(0, 0%, 98%)',
         white: 'hsl(0, 0%, 100%)'
       }
     }
   },
   plugins: [],
-  darkMode: 'selector'
+  darkMode: ['selector', '[data-mode="dark"]']
 }
