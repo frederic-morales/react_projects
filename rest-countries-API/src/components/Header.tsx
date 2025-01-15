@@ -8,7 +8,7 @@ function Header() {
       <p className="text-sm font-bold">Where in the world?</p>
       <div className="flex justify-center items-center w-36 h-16">
         <svg
-          className="size-4"
+          className="size-4 dark:text-white"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"

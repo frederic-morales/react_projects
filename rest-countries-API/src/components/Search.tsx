@@ -3,7 +3,7 @@
 function Search() {
   return (
     <>
-      <div className="flex w-11/12 rounded-md border justify-start py-4 pl-9 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
+      <div className="flex w-11/12 rounded-md justify-start py-4 pl-9 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
         <svg
           className="size-5"
           role="button"
