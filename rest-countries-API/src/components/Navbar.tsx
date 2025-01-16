@@ -17,7 +17,6 @@ function Navbar() {
           onClick={handleClick}
           className="dark:text-white size-3"
           role="button"
-          aria-label="Nav bar"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 100"
           strokeWidth={1.5}
@@ -29,9 +28,9 @@ function Navbar() {
             d="M10 30 L50 70 L90 30"
             fill="none"
             stroke="currentColor"
-            stroke-width="8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </div>
