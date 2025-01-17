@@ -3,7 +3,7 @@
 function Search() {
   return (
     <>
-      <div className="flex w-11/12 rounded-md justify-start py-4 pl-9 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
+      <div className="flex max-w-96 w-full rounded-md justify-start py-4 pl-9 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
         <svg
           className="size-5"
           role="button"
@@ -22,7 +22,7 @@ function Search() {
           />
         </svg>
         <input
-          className="pl-6 bg-transparent focus:outline-none text-sm placeholder:text-white"
+          className="pl-6 bg-transparent focus:outline-none text-sm placeholder:dark:text-white "
           type="text"
           placeholder="Search for a country..."
           aria-label="Campo de búsqueda"

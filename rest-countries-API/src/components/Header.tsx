@@ -6,7 +6,7 @@ function Header() {
   return (
     <div className="flex w-full justify-between items-center pl-4 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
       <p className="text-sm font-bold">Where in the world?</p>
-      <div className="flex justify-center items-center w-36 h-16">
+      <div className="flex justify-center items-center w-36 h-20">
         <svg
           className="size-4 dark:text-white"
           xmlns="http://www.w3.org/2000/svg"

@@ -1,20 +1,17 @@
 // import { useState } from 'react'
 import "./App.css";
 import Header from "./components/Header";
-import Search from "./components/Search";
-import Navbar from "./components/Navbar";
-import Country from "./components/Country";
+// import Country from "./components/Country";
+import Main from "./components/Main";
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div className="flex flex-col items-center">
       <Header></Header>
-      <Search></Search>
-      <Navbar></Navbar>
-      <Country></Country>
-    </>
+      <Main></Main>
+    </div>
   );
 }
 
