@@ -2,7 +2,7 @@
 import "./App.css";
 import Header from "./components/Header";
 // import Country from "./components/Country";
-import Main from "./components/Main";
+import Main from "./pages/Main";
 
 function App() {
   // const [count, setCount] = useState(0)

@@ -1,45 +1,21 @@
 // type Props = {};
+import { CountryData } from "../services/interfaces";
 
-import { useState, useEffect } from "react";
-
-type county = {
-  name: {
-    common: string;
-    official: string;
-  };
-  population: number;
-  region: string;
-  capital: string;
-};
-
-function Country() {
-  const [data, setData] = useState<county>();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("https://restcountries.com/v3.1/all");
-      const data = await response.json();
-      setData(data);
-    };
-
-    fetchData();
-  }, []);
-
-  const handleClick = () => {
-    console.log(data);
-  };
+function Country(props: CountryData) {
+  const { name, population, region, capital } = props;
 
   return (
-    <div className="w-28 h-96 bg-slate-400" onClick={handleClick}>
+    <div className="w-28 h-96 bg-slate-400">
       <div>
         <img src="" alt="" />
       </div>
-      <div>
+      <div className="">
         <p>County Name</p>
         <ul>
-          <li>Pupolation: 323.154.54</li>
-          <li>Region: Americas</li>
-          <li>Capital: sdfrzssdgewgd</li>
+          <li>Name: {name.common}</li>
+          <li>Pupolation: {population}</li>
+          <li>Region: {region}</li>
+          <li>Capital: {capital}</li>
         </ul>
       </div>
     </div>
