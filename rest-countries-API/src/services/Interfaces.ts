@@ -8,4 +8,8 @@ export interface CountryData {
   capital?: Array<string>;
   continent?: Array<string>;
   timeZone?: string;
+  flags: {
+    alt: string;
+    png: string;
+  };
 }

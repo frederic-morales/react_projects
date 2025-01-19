@@ -35,7 +35,7 @@ function Navbar() {
         </svg>
       </div>
       {showList && (
-        <div className="flex pl-6 mt-0.5 text-sm py-3 rounded-md flex-col w-56 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
+        <div className="flex z-10 relative pl-6 mt-0.5 text-sm py-3 rounded-md flex-col w-56 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
           <p className="pt-3">Africa</p>
           <p className="pt-3">America</p>
           <p className="pt-3">Asia</p>

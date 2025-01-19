@@ -2,14 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wdth,wght,YTLC@0,6..12,75..125,200..1000,440..540;1,6..12,75..125,200..1000,440..540&display=swap");
 
 @layer utilities {
   .stroke-13 {
     stroke-width: 13;
   }
+
+  .font-nunito {
+    font-family: "Nunito Sans", serif;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
