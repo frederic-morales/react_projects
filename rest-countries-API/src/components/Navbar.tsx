@@ -11,7 +11,7 @@ function Navbar() {
 
   return (
     <div>
-      <div className="flex px-6 py-4 justify-between rounded-md items-center w-56 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
+      <div className="flex px-6 h-14 justify-between rounded-md items-center w-56 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
         <p className="text-sm">Filter by region</p>
         <svg
           onClick={handleClick}
@@ -35,12 +35,22 @@ function Navbar() {
         </svg>
       </div>
       {showList && (
-        <div className="flex z-10 relative pl-6 mt-0.5 text-sm py-3 rounded-md flex-col w-56 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
-          <p className="pt-3">Africa</p>
-          <p className="pt-3">America</p>
-          <p className="pt-3">Asia</p>
-          <p className="pt-3">Europe</p>
-          <p className="py-3">Oceania</p>
+        <div className="flex z-10 pl-6 mt-1 text-sm py-3 rounded-md flex-col w-56 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
+          <p className="pt-3">
+            <a href="">Africa</a>
+          </p>
+          <p className="pt-3">
+            <a href="">America</a>
+          </p>
+          <p className="pt-3">
+            <a href="">Asia</a>
+          </p>
+          <p className="pt-3">
+            <a href="">Europe</a>
+          </p>
+          <p className="py-3">
+            <a href="">Oceania</a>
+          </p>
         </div>
       )}
     </div>

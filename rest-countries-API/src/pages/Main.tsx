@@ -24,11 +24,11 @@ function Main() {
 
   return (
     <div className="w-full flex flex-col items-center pt-5 dark:bg-veryDarkBlueBG">
-      <div className="w-11/12 flex flex-col gap-10">
+      <div className="w-11/12 absolute flex flex-col gap-10 md:flex-row md:justify-between md:w-[86%]">
         <Search></Search>
         <Navbar></Navbar>
       </div>
-      <div className="mt-8 flex flex-col gap-10">
+      <div className="mt-44 flex flex-col gap-10">
         {data.map((country) => (
           <Country
             key={country.name.common}
