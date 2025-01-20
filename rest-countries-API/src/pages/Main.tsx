@@ -23,12 +23,12 @@ function Main() {
   console.log(data);
 
   return (
-    <div className="w-full flex flex-col items-center pt-5 dark:bg-veryDarkBlueBG">
-      <div className="w-11/12 absolute flex flex-col gap-10 md:flex-row md:justify-between md:w-[86%]">
+    <div className="w-full flex flex-col items-center pt-5 md:pt-12 dark:bg-veryDarkBlueBG">
+      <div className="w-11/12 absolute flex flex-col gap-y-5 md:flex-row md:justify-between md:max-w-[86%] ">
         <Search></Search>
         <Navbar></Navbar>
       </div>
-      <div className="mt-44 flex flex-col gap-10">
+      <div className="mt-44 md:mt-28 max-w-[86%] flex flex-col md:flex-row md:flex-wrap justify-center lg:justify-between gap-10">
         {data.map((country) => (
           <Country
             key={country.name.common}
