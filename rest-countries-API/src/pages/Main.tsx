@@ -4,23 +4,27 @@ import Navbar from "../components/Navbar";
 import Country from "../components/Country";
 import { useEffect, useState } from "react";
 import { CountryData } from "../services/Interfaces";
+import { Link } from "react-router-dom";
 
 function Main() {
-  const [data, setData] = useState<CountryData[]>([]);
+  const [countries, setCountries] = useState<CountryData[]>([]);
 
   useEffect(() => {
     const api = async () => {
-      const fetchData = await fetch("https://restcountries.com/v3.1/all", {
-        method: "GET",
-      });
-      const jsonData = await fetchData.json();
-      setData(jsonData);
+      try {
+        const fetchData = await fetch("https://restcountries.com/v3.1/all", {
+          method: "GET",
+        });
+        const jsonData = await fetchData.json();
+        setCountries(jsonData);
+      } catch (err) {
+        console.log(err);
+      }
     };
-
     api();
   }, []);
 
-  console.log(data);
+  console.log(countries);
 
   return (
     <div className="w-full flex flex-col items-center pt-5 md:pt-12 dark:bg-veryDarkBlueBG">
@@ -29,15 +33,17 @@ function Main() {
         <Navbar></Navbar>
       </div>
       <div className="mt-44 md:mt-28 max-w-[86%] flex flex-col md:flex-row md:flex-wrap justify-center lg:justify-between gap-10">
-        {data.map((country) => (
-          <Country
-            key={country.name.common}
-            name={country.name}
-            population={country.population}
-            region={country.region}
-            capital={country.capital}
-            flags={country.flags}
-          ></Country>
+        {countries.map((country) => (
+          <Link to={`country/${country.name.common}`}>
+            <Country
+              key={country.name.common}
+              name={country.name}
+              population={country.population}
+              region={country.region}
+              capital={country.capital}
+              flags={country.flags}
+            ></Country>
+          </Link>
         ))}
       </div>
     </div>
