@@ -26,9 +26,30 @@ function CountryDetails() {
   if (!country) return <div>Loading...</div>;
 
   return (
-    <div>
-      <div>
-        <p>country</p>
+    <div className="flex items-center justify-center w-full dark:bg-veryDarkBlueBG">
+      <div className="w-11/12">
+        <button></button>
+        <div>
+          <img src="" alt="" />
+          <div></div>
+          <p></p>
+          <ul>
+            <li>Algo</li>
+            <li>Algo</li>
+            <li>Algo</li>
+            <li>Algo</li>
+            <li>Algo</li>
+            <li>Algo</li>
+            <li>Algo</li>
+            <li>Algo</li>
+          </ul>
+          <div>
+            <p>Boder countries</p>
+            <ul>
+              <li></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

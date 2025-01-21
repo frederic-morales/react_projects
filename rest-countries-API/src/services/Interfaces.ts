@@ -1,7 +1,9 @@
 export interface CountryData {
+  altSpelling?: object[];
   name: {
     common: string;
     official: string;
+    nativeName: object[];
   };
   population: number;
   region: string;
