@@ -34,14 +34,15 @@ function Main() {
       </div>
       <div className="mt-44 md:mt-28 max-w-[86%] flex flex-col md:flex-row md:flex-wrap justify-center lg:justify-between gap-10">
         {countries.map((country) => (
-          <Link to={`country/${country.name.common}`}>
+          <Link to={`country/${country.name?.common}`}>
             <Country
-              key={country.name.common}
+              key={country.name?.common}
               name={country.name}
               population={country.population}
               region={country.region}
               capital={country.capital}
               flags={country.flags}
+              altSpellings={country.altSpellings}
             ></Country>
           </Link>
         ))}

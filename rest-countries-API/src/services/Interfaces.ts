@@ -1,17 +1,38 @@
 export interface CountryData {
-  altSpelling?: object[];
-  name: {
-    common: string;
-    official: string;
-    nativeName: object[];
-  };
+  altSpellings?: string[];
+  name?: countryName;
   population: number;
   region: string;
-  capital?: Array<string>;
-  continent?: Array<string>;
+  subRegion?: string;
+  capital: string[];
+  continents?: string[];
   timeZone?: string;
-  flags: {
-    alt: string;
-    png: string;
-  };
+  flags?: countryFlags;
+  tld?: string[];
+  currencies?: currency;
+  languages?: language;
+}
+
+interface countryName {
+  common: string;
+  official: string;
+  nativeName: object[];
+}
+
+interface countryFlags {
+  alt: string;
+  png: string;
+}
+
+interface currencies {
+  name: string;
+  symbol: string;
+}
+
+interface currency {
+  [key: string]: currencies;
+}
+
+interface language {
+  [key: string]: string;
 }
