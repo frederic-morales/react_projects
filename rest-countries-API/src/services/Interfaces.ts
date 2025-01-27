@@ -1,9 +1,10 @@
 export interface CountryData {
   altSpellings?: string[];
+  borders?: string[];
   name?: countryName;
   population: number;
   region: string;
-  subRegion?: string;
+  subregion?: string;
   capital: string[];
   continents?: string[];
   timeZone?: string;
