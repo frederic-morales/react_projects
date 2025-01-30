@@ -41,51 +41,58 @@ function CountryDetails() {
   if (!country) return <div>Loading...</div>;
 
   return (
-    <div className="flex items-center justify-center w-full dark:bg-veryDarkBlueBG">
-      <div className="w-10/12 max-w-xs">
-        <button className="mt-12 py-2 pr-7 pl-5 bg-darkBlue shadow-lg flex gap-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="size-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-            />
-          </svg>{" "}
-          <p>Back</p>
-        </button>
-        <div className="mt-16 h-full w-full rounded-lg flex flex-col justify-between">
-          <div className="w-full h-52">
+    <div className="flex items-center justify-center md:items-start md:pt-12 w-full md:h-svh dark:bg-veryDarkBlueBG">
+      <div className="w-10/12 max-w-xs flex flex-col md:flex-row md:max-w-none">
+        <div className="md:w-2/4">
+          <button className="mt-12 py-2 pr-7 pl-5 bg-darkBlue shadow-lg flex gap-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
+            </svg>{" "}
+            <p>Back</p>
+          </button>
+          <div className="w-full h-52 mt-16 md:max-w-xl md:h-full md:max-h-64">
             <img
               src={country.flags?.png}
               alt=""
               className="w-full h-full object-fill"
             />
           </div>
-          <p className="text-2xl font-bold mt-6">{country.name?.common}</p>
-          <ul className="text-sm mt-5 space-y-2">
-            <li>
-              <b>Native Name:</b>{" "}
-              {country.altSpellings ? country.altSpellings[0] : ""}
-            </li>
-            <li>
-              <b>Population:</b> {country.population}
-            </li>
-            <li>
-              <b>Region:</b> {country.region}
-            </li>
-            <li>
-              <b>{country.subregion && "Sub Region:"} </b> {country.subregion}
-            </li>
-            <li>
-              <b>Capital:</b> {country.capital[0]}
-            </li>
+        </div>
+        <div className="mt-12 h-full w-full rounded-lg flex flex-col justify-between md:w-2/4 md:flex-row">
+          <div className="md:w-2/4">
+            <p className="text-2xl font-bold">{country.name?.common}</p>
+            <ul className="text-sm mt-5 space-y-2">
+              <li>
+                <b>Native Name:</b>{" "}
+                {country.altSpellings ? country.altSpellings[0] : ""}
+              </li>
+              <li>
+                <b>Population:</b> {country.population}
+              </li>
+              <li>
+                <b>Region:</b> {country.region}
+              </li>
+              <li>
+                <b>{country.subregion && "Sub Region:"} </b> {country.subregion}
+              </li>
+              <li>
+                <b>Capital:</b> {country.capital[0]}
+              </li>
+            </ul>
+          </div>
+          {/* OTRO DIV */}
+          <ul>
             <li className="pt-10">
               <b>Top Level Domain:</b> {country.tld ? country.tld[0] : ""}
             </li>
