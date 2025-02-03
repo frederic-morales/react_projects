@@ -61,7 +61,7 @@ function CountryDetails() {
             </svg>{" "}
             <p>Back</p>
           </button>
-          <div className="w-full h-52 mt-16 md:max-w-xl md:h-full md:max-h-64">
+          <div className="w-full h-52 mt-16 md:max-w-sm lg:max-w-md md:h-60 lg:h-72">
             <img
               src={country.flags?.png}
               alt=""
@@ -69,9 +69,9 @@ function CountryDetails() {
             />
           </div>
         </div>
-        <div className="mt-12 h-full w-full rounded-lg flex flex-col justify-between md:w-2/4 md:flex-row">
-          <div className="md:w-2/4">
-            <p className="text-2xl font-bold">{country.name?.common}</p>
+        <div className="mt-12 h-full md:mt-0 w-full rounded-lg flex flex-col justify-between md:w-2/4 md:pt-28">
+          <p className="text-2xl font-bold">{country.name?.common}</p>
+          <div className="flex flex-col md:w-full md:flex-row md:gap-10">
             <ul className="text-sm mt-5 space-y-2">
               <li>
                 <b>Native Name:</b>{" "}
@@ -90,31 +90,30 @@ function CountryDetails() {
                 <b>Capital:</b> {country.capital[0]}
               </li>
             </ul>
+            <ul>
+              <li className="pt-10">
+                <b>Top Level Domain:</b> {country.tld ? country.tld[0] : ""}
+              </li>
+              <li>
+                <b>Currencies: </b>
+                {country.currencies
+                  ? Object.keys(country.currencies).map((key) => {
+                      return country.currencies
+                        ? country.currencies[key].name
+                        : "";
+                    })
+                  : ""}
+              </li>
+              <li>
+                <b>Languages: </b>
+                {country.languages
+                  ? country.languages[Object.keys(country.languages)[0]]
+                  : ""}
+              </li>
+            </ul>
           </div>
-          {/* OTRO DIV */}
-          <ul>
-            <li className="pt-10">
-              <b>Top Level Domain:</b> {country.tld ? country.tld[0] : ""}
-            </li>
-            <li>
-              <b>Currencies: </b>
-              {country.currencies
-                ? Object.keys(country.currencies).map((key) => {
-                    return country.currencies
-                      ? country.currencies[key].name
-                      : "";
-                  })
-                : ""}
-            </li>
-            <li>
-              <b>Languages: </b>
-              {country.languages
-                ? country.languages[Object.keys(country.languages)[0]]
-                : ""}
-            </li>
-          </ul>
-          <div className="mt-10">
-            <p className="text-xl font-semibold">
+          <div className="mt-10 flex flex-col md:flex-row">
+            <p className="font-semibold ">
               {borders.length > 0 ? " Border Countries: " : ""}
             </p>
             <ul className="flex flex-wrap gap-2 my-5">
