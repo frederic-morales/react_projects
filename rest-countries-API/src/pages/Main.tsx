@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 function Main() {
   const [countries, setCountries] = useState<CountryData[]>([]);
+  // const [continent, setContinent] = useState<string>("");
 
   useEffect(() => {
     const api = async () => {
