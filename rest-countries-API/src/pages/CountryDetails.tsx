@@ -41,9 +41,9 @@ function CountryDetails() {
   if (!country) return <div>Loading...</div>;
 
   return (
-    <div className="flex items-center justify-center md:items-start md:pt-12 w-full md:h-svh dark:bg-veryDarkBlueBG">
-      <div className="w-10/12 max-w-xs flex flex-col md:flex-row md:max-w-none">
-        <div className="md:w-2/4">
+    <div className="flex items-center justify-center md:items-start md:pt-3 w-full md:h-svh dark:bg-veryDarkBlueBG">
+      <div className="w-10/12 max-w-xs flex flex-col md:flex-row md:max-w-none md:gap-8 lg:gap-32 lg:max-w-screen-xl">
+        <div className="md:w-2/5 lg:w-2/4">
           <button className="mt-12 py-2 pr-7 pl-5 bg-darkBlue shadow-lg flex gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ function CountryDetails() {
             </svg>{" "}
             <p>Back</p>
           </button>
-          <div className="w-full h-52 mt-16 md:max-w-sm lg:max-w-md md:h-60 lg:h-72">
+          <div className="w-full mt-16 md:max-w-sm lg:max-w-none">
             <img
               src={country.flags?.png}
               alt=""
@@ -69,8 +69,10 @@ function CountryDetails() {
             />
           </div>
         </div>
-        <div className="mt-12 h-full md:mt-0 w-full rounded-lg flex flex-col justify-between md:w-2/4 md:pt-28">
-          <p className="text-2xl font-bold">{country.name?.common}</p>
+        <div className="mt-12 h-full md:mt-0 w-full rounded-lg flex flex-col justify-between md:w-3/5 md:pt-28 lg:pt-44 lg:w-2/4">
+          <p className="text-2xl font-bold lg:text-4xl">
+            {country.name?.common}
+          </p>
           <div className="flex flex-col md:w-full md:flex-row md:gap-10">
             <ul className="text-sm mt-5 space-y-2">
               <li>
@@ -112,22 +114,22 @@ function CountryDetails() {
               </li>
             </ul>
           </div>
-          <div className="mt-10 flex flex-col md:flex-row">
-            <p className="font-semibold ">
+          <div className="mt-10 flex md:flex-row md:h-auto flex-wrap gap-2 my-5 lg:mt-6 lg:my-0">
+            <p className="font-semibold w-full">
               {borders.length > 0 ? " Border Countries: " : ""}
             </p>
-            <ul className="flex flex-wrap gap-2 my-5">
-              {borders?.map((border) => {
-                return (
-                  <li
-                    className="flex justify-center text-sm bg-darkBlue text-white w-24 py-2 rounded-lg "
-                    key={border.name?.common}
-                  >
-                    <button className="">{border.name?.common}</button>
-                  </li>
-                );
-              })}
-            </ul>
+            {/* <ul className="flex flex-wrap gap-2 my-5"> */}
+            {borders?.map((border) => {
+              return (
+                <li
+                  className="flex justify-center text-sm bg-darkBlue text-white w-24 py-2 rounded-lg "
+                  key={border.name?.common}
+                >
+                  <button className="">{border.name?.common}</button>
+                </li>
+              );
+            })}
+            {/* </ul> */}
           </div>
         </div>
       </div>

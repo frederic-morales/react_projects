@@ -4,7 +4,7 @@
 
 function Header() {
   return (
-    <div className="flex w-11/12 md:w-[86%] justify-between items-center shadow-lg">
+    <div className="flex w-11/12 md:w-[86%] justify-between items-center shadow-lg lg:max-w-screen-xl">
       <p className="text-sm font-bold md:text-xl lg:text-2xl">
         Where in the world?
       </p>
