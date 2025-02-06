@@ -1,6 +1,16 @@
-// type Props = {};
+import { useState } from "react";
+import { SearchBarProps } from "../services/Interfaces";
+import { ChangeEvent, FC } from "react";
 
-function Search() {
+const Search: FC<SearchBarProps> = ({ onSearch }) => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setInputValue(value);
+    onSearch(inputValue);
+  };
+
   return (
     <>
       <div className="flex max-w-96 h-14 w-full items-center rounded-md justify-start pl-9 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
@@ -26,10 +36,11 @@ function Search() {
           type="text"
           placeholder="Search for a country..."
           aria-label="Campo de búsqueda"
+          onChange={handleInputChange}
         />
       </div>
     </>
   );
-}
+};
 
 export default Search;

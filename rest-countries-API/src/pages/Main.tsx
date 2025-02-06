@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 function Main() {
   const [countries, setCountries] = useState<CountryData[]>([]);
+  const [searchText, setSearchText] = useState("");
   // const [continent, setContinent] = useState<string>("");
 
   useEffect(() => {
@@ -25,16 +26,34 @@ function Main() {
     api();
   }, []);
 
-  console.log(countries);
+  const handleSearch = (text: string) => {
+    setSearchText(text);
+  };
+
+  let results: CountryData[] = [];
+
+  if (!searchText) {
+    results = countries;
+  } else {
+    results = countries.filter((data) => {
+      data.name?.common.toLowerCase().includes(searchText.toLowerCase());
+      console.log(
+        data.name?.common.toLocaleLowerCase().includes(searchText.toLowerCase())
+      );
+    });
+    console.log(results);
+  }
+
+  // console.log(searchText);
 
   return (
     <div className="w-full flex flex-col items-center pt-5 md:pt-12 dark:bg-veryDarkBlueBG">
       <div className="w-11/12 absolute flex flex-col gap-y-5 md:flex-row md:justify-between md:max-w-[86%] ">
-        <Search></Search>
+        <Search onSearch={handleSearch}></Search>
         <Navbar></Navbar>
       </div>
       <div className="mt-44 md:mt-28 max-w-[86%] flex flex-col md:flex-row md:flex-wrap justify-center lg:justify-between gap-10">
-        {countries.map((country) => (
+        {results.map((country) => (
           <Link
             key={country.name?.common}
             to={`country/${country.name?.common}`}
