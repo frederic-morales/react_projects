@@ -1,8 +1,13 @@
 import { useState } from "react";
-import { SearchBarProps } from "../services/Interfaces";
-import { ChangeEvent, FC } from "react";
+// import { SearchBarProps } from "../services/Interfaces";
+import { ChangeEvent } from "react";
 
-const Search: FC<SearchBarProps> = ({ onSearch }) => {
+interface SearchBarProps {
+  onSearch: (text: string) => void;
+}
+
+function Search(props: SearchBarProps) {
+  const { onSearch } = props;
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -41,6 +46,6 @@ const Search: FC<SearchBarProps> = ({ onSearch }) => {
       </div>
     </>
   );
-};
+}
 
 export default Search;

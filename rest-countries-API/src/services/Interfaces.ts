@@ -37,7 +37,3 @@ interface currency {
 interface language {
   [key: string]: string;
 }
-
-export interface SearchBarProps {
-  onSearch: (text: string) => void;
-}

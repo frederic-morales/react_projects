@@ -36,10 +36,8 @@ function Main() {
     results = countries;
   } else {
     results = countries.filter((data) => {
-      data.name?.common.toLowerCase().includes(searchText.toLowerCase());
-      console.log(
-        data.name?.common.toLocaleLowerCase().includes(searchText.toLowerCase())
-      );
+      const name = data.name?.common.toLowerCase();
+      if (name?.includes(searchText.toLowerCase())) return name;
     });
     console.log(results);
   }
@@ -47,12 +45,12 @@ function Main() {
   // console.log(searchText);
 
   return (
-    <div className="w-full flex flex-col items-center pt-5 md:pt-12 dark:bg-veryDarkBlueBG">
+    <div className="w-full flex flex-col items-center pt-5 md:pt-12 dark:bg-veryDarkBlueBG min-h-screen pb-20">
       <div className="w-11/12 absolute flex flex-col gap-y-5 md:flex-row md:justify-between md:max-w-[86%] ">
         <Search onSearch={handleSearch}></Search>
         <Navbar></Navbar>
       </div>
-      <div className="mt-44 md:mt-28 max-w-[86%] flex flex-col md:flex-row md:flex-wrap justify-center lg:justify-between gap-10">
+      <div className="mt-44 md:mt-28 max-w-[86%] flex flex-col md:flex-row md:flex-wrap justify-center lg:justify-start gap-10">
         {results.map((country) => (
           <Link
             key={country.name?.common}
