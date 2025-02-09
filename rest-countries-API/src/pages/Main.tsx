@@ -9,12 +9,21 @@ import { Link } from "react-router-dom";
 function Main() {
   const [countries, setCountries] = useState<CountryData[]>([]);
   const [searchText, setSearchText] = useState("");
-  // const [continent, setContinent] = useState<string>("");
+  const [selectedContinent, setSelectedContinent] = useState<string>("");
+
+  const handleSelectContinent = (continent: string) => {
+    console.log(selectedContinent);
+    setSelectedContinent(continent);
+  };
 
   useEffect(() => {
     const api = async () => {
       try {
-        const fetchData = await fetch("https://restcountries.com/v3.1/all", {
+        let url = "https://restcountries.com/v3.1/all";
+        if (selectedContinent) {
+          url = `https://restcountries.com/v3.1/region/${selectedContinent}`;
+        }
+        const fetchData = await fetch(url, {
           method: "GET",
         });
         const jsonData = await fetchData.json();
@@ -24,7 +33,7 @@ function Main() {
       }
     };
     api();
-  }, []);
+  }, [selectedContinent]);
 
   const handleSearch = (text: string) => {
     setSearchText(text);
@@ -48,7 +57,7 @@ function Main() {
     <div className="w-full flex flex-col items-center pt-5 md:pt-12 dark:bg-veryDarkBlueBG min-h-screen pb-20">
       <div className="w-11/12 absolute flex flex-col gap-y-5 md:flex-row md:justify-between md:max-w-[86%] ">
         <Search onSearch={handleSearch}></Search>
-        <Navbar></Navbar>
+        <Navbar onSelectContinent={handleSelectContinent}></Navbar>
       </div>
       <div className="mt-44 md:mt-28 max-w-[86%] flex flex-col md:flex-row md:flex-wrap justify-center lg:justify-start gap-10">
         {results.map((country) => (

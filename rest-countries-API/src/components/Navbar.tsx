@@ -1,7 +1,13 @@
 import { useState } from "react";
-// type Props = {};
 
-function Navbar() {
+interface ContinentsProps {
+  onSelectContinent: (continent: string) => void;
+}
+
+function Navbar(props: ContinentsProps) {
+  const continents = ["Africa", "America", "Asia", "Europe", "Oceania"];
+
+  const { onSelectContinent } = props;
   const [showList, setShowList] = useState(false);
 
   function handleClick() {
@@ -36,21 +42,18 @@ function Navbar() {
       </div>
       {showList && (
         <div className="flex z-10 pl-6 mt-1 text-sm py-3 rounded-md flex-col w-56 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
-          <p className="pt-3">
-            <a href="">Africa</a>
-          </p>
-          <p className="pt-3">
-            <a href="">America</a>
-          </p>
-          <p className="pt-3">
-            <a href="">Asia</a>
-          </p>
-          <p className="pt-3">
-            <a href="">Europe</a>
-          </p>
-          <p className="py-3">
-            <a href="">Oceania</a>
-          </p>
+          {continents.map((continent) => (
+            <p
+              key={continent}
+              onClick={() => {
+                setShowList(false);
+                onSelectContinent(continent);
+              }}
+              className="py-3 cursor-pointer"
+            >
+              {continent}
+            </p>
+          ))}
         </div>
       )}
     </div>

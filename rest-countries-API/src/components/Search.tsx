@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { SearchBarProps } from "../services/Interfaces";
 import { ChangeEvent } from "react";
 
 interface SearchBarProps {
