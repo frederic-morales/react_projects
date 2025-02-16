@@ -17,7 +17,7 @@ function Navbar(props: ContinentsProps) {
 
   return (
     <div>
-      <div className="flex px-6 h-14 justify-between rounded-md items-center w-56 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
+      <div className="flex px-6 h-14 justify-between rounded-md items-center w-56 bg-veryLigthGray dark:bg-darkBlue dark:text-white shadow-lg">
         <p className="text-sm">Filter by region</p>
         <svg
           onClick={handleClick}
@@ -49,7 +49,7 @@ function Navbar(props: ContinentsProps) {
                 setShowList(false);
                 onSelectContinent(continent);
               }}
-              className="py-3 cursor-pointer"
+              className="py-1 cursor-pointer"
             >
               {continent}
             </p>

@@ -17,7 +17,7 @@ function Search(props: SearchBarProps) {
 
   return (
     <>
-      <div className="flex max-w-96 h-14 w-full items-center rounded-md justify-start pl-9 bg-veryLigthGray dark:bg-darkBlue dark:text-white">
+      <div className="flex max-w-96 h-14 w-full items-center rounded-md justify-start pl-9 bg-veryLigthGray dark:bg-darkBlue dark:text-white shadow-lg">
         <svg
           className="size-5"
           role="button"

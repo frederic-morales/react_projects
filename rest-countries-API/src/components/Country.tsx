@@ -5,7 +5,7 @@ function Country(props: CountryData) {
   const { flags, name, population, region, capital } = props;
 
   return (
-    <div className="w-64 h-80 rounded-lg dark:bg-darkBlue">
+    <div className="w-64 h-80 rounded-lg dark:bg-darkBlue shadow-lg">
       <div className="w-full h-40">
         <img src={flags?.png} alt="" className="w-full h-full object-fill" />
       </div>

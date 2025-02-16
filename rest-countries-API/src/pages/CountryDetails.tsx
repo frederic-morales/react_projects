@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { CountryData } from "../services/Interfaces";
 import { useEffect, useState } from "react";
 
@@ -6,6 +6,11 @@ function CountryDetails() {
   const { id } = useParams();
   const [country, setCountry] = useState<CountryData>();
   const [borders, setBorders] = useState<CountryData[]>([]);
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate("/");
+  };
 
   useEffect(() => {
     const api = async () => {
@@ -38,13 +43,21 @@ function CountryDetails() {
   console.log(country);
   console.log(borders);
 
-  if (!country) return <div>Loading...</div>;
+  if (!country)
+    return (
+      <div className="h-screen w-full flex justify-center items-center text-xl font-black dark:bg-veryDarkBlueBG">
+        Loading...
+      </div>
+    );
 
   return (
     <div className="flex items-center justify-center md:items-start md:pt-3 w-full md:h-svh dark:bg-veryDarkBlueBG">
       <div className="w-10/12 max-w-xs flex flex-col md:flex-row md:max-w-none md:gap-8 lg:gap-32 lg:max-w-screen-xl">
         <div className="md:w-2/5 lg:w-2/4">
-          <button className="mt-12 py-2 pr-7 pl-5 bg-darkBlue shadow-lg flex gap-3">
+          <button
+            onClick={handleGoBack}
+            className="mt-12 py-2 pr-7 pl-5 dark:bg-darkBlue shadow-lg flex gap-3"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -122,7 +135,7 @@ function CountryDetails() {
             {borders?.map((border) => {
               return (
                 <li
-                  className="flex justify-center text-sm bg-darkBlue text-white w-24 py-2 rounded-lg "
+                  className="flex justify-center text-sm dark:bg-darkBlue dark:text-white w-24 py-2 rounded-lg shadow-lg"
                   key={border.name?.common}
                 >
                   <button className="">{border.name?.common}</button>

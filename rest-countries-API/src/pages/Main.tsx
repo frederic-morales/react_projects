@@ -59,7 +59,7 @@ function Main() {
         <Search onSearch={handleSearch}></Search>
         <Navbar onSelectContinent={handleSelectContinent}></Navbar>
       </div>
-      <div className="mt-44 md:mt-28 max-w-[86%] flex flex-col md:flex-row md:flex-wrap justify-center lg:justify-start gap-10">
+      <div className="mt-44 md:mt-28 max-w-[86%] flex flex-col md:flex-row md:flex-wrap justify-center lg:justify-between gap-10">
         {results.map((country) => (
           <Link
             key={country.name?.common}
